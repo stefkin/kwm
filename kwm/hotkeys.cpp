@@ -293,7 +293,7 @@ extern "C" KWM_HOTKEY_COMMANDS(CustomHotkeyCommands)
             // Open New iTerm Window
             case kVK_Return:
             {
-                system("/Applications/iTerm.app/Contents/MacOS/iTerm2 --new-window &");
+                system("/Applications/iTerm.app/Contents/MacOS/iTerm --new-window &");
             } break;
             // YTD - Media Player Controls
             case kVK_ANSI_Z:
