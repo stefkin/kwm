@@ -37,7 +37,7 @@ extern "C" KWM_KEY_REMAP(RemapKeys)
 extern "C" KWM_HOTKEY_COMMANDS(KWMHotkeyCommands)
 {
     bool Result = true;
-    if(CmdKey && AltKey && CtrlKey)
+    if(ShiftKey && AltKey)
     {
         switch(Keycode)
         {
@@ -118,7 +118,7 @@ extern "C" KWM_HOTKEY_COMMANDS(KWMHotkeyCommands)
             } break;
         }
     }
-    else if(CmdKey && AltKey && !CtrlKey)
+    else if(!ShiftKey && AltKey)
     {
         switch(Keycode)
         {
@@ -143,12 +143,12 @@ extern "C" KWM_HOTKEY_COMMANDS(KWMHotkeyCommands)
                 system("kwmc window -s mark");
             } break;
             // Shift focus to the previous window
-            case kVK_ANSI_H:
+            case kVK_ANSI_J:
             {
                 system("kwmc window -f prev");
             } break;
             // Shift focus to the next window
-            case kVK_ANSI_L:
+            case kVK_ANSI_K:
             {
                 system("kwmc window -f next");
             } break;
@@ -189,7 +189,7 @@ extern "C" KWM_HOTKEY_COMMANDS(KWMHotkeyCommands)
             } break;
         }
     }
-    else if(!CmdKey && CtrlKey && AltKey)
+    else if(!ShiftKey && CtrlKey && AltKey)
     {
         switch(Keycode)
         {
@@ -262,6 +262,7 @@ extern "C" KWM_HOTKEY_COMMANDS(SystemHotkeyCommands)
 {
     bool Result = true;
     if (CmdKey && !CtrlKey && !AltKey)
+
     {
         switch(Keycode)
         {
