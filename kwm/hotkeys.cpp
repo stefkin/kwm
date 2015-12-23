@@ -41,15 +41,26 @@ extern "C" KWM_HOTKEY_COMMANDS(KWMHotkeyCommands)
     {
         switch(Keycode)
         {
+
+            // swap focused window with the previous window
+            case kVK_ANSI_J:
+            {
+              system("kwmc window -s prev");
+            } break;
+            // Swap focused window with the next window
+            case kVK_ANSI_K:
+            {
+              system("kwmc window -s next");
+            } break;
+            // Swap focused window with the marked window
+            case kVK_ANSI_M:
+            {
+              system("kwmc window -s mark");
+            } break;
             // Toggle Focus-Mode
             case kVK_ANSI_T:
             {
                 system("kwmc focus -t toggle");
-            } break;
-            // Mark Container to split
-            case kVK_ANSI_M:
-            {
-                system("kwmc window -t mark");
             } break;
             // Toggle window floating
             case kVK_ANSI_W:
@@ -95,14 +106,14 @@ extern "C" KWM_HOTKEY_COMMANDS(KWMHotkeyCommands)
             {
                 system("kwmc space -m right");
             } break;
-            case kVK_ANSI_J:
-            {
-                system("kwmc space -m down");
-            } break;
-            case kVK_ANSI_K:
-            {
-                system("kwmc space -m up");
-            } break;
+            // case kVK_ANSI_J:
+            // {
+            //     system("kwmc space -m down");
+            // } break;
+            // case kVK_ANSI_K:
+            // {
+            //     system("kwmc space -m up");
+            // } break;
             // Toggle Fullscreen / Parent Container
             case kVK_ANSI_F:
             {
@@ -122,25 +133,16 @@ extern "C" KWM_HOTKEY_COMMANDS(KWMHotkeyCommands)
     {
         switch(Keycode)
         {
+
+            // Mark Container to split
+            case kVK_ANSI_M:
+            {
+                system("kwmc window -t mark");
+            } break;
             // Toggle space floating/tiling
             case kVK_ANSI_T:
             {
                 system("kwmc space -t toggle");
-            } break;
-            // Swap focused window with the previous window
-            case kVK_ANSI_P:
-            {
-                system("kwmc window -s prev");
-            } break;
-            // Swap focused window with the next window
-            case kVK_ANSI_N:
-            {
-                system("kwmc window -s next");
-            } break;
-            // Swap focused window with the marked window
-            case kVK_ANSI_M:
-            {
-                system("kwmc window -s mark");
             } break;
             // Shift focus to the previous window
             case kVK_ANSI_J:
